@@ -17,6 +17,22 @@
     </style>
 </head>
 <body>
-<div id="mydiv">Hello world</div>
+<div id="mydiv" onmouseover="change()" onmouseout="changeback()">Hello world</div>
+
+
+<script>     
+
+function change() {
+document.getElementById("mydiv").innerHTML ="Can I help you?";
+}
+
+function changeback() {
+document.getElementById("mydiv").innerHTML ="Hello world";
+}
+
+
+</script>
+
+
 </body>
 </html>
