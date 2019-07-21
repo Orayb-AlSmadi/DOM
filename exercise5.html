@@ -23,14 +23,14 @@
     <table>
         <tr>
             <td>Password (min 6 characters):</td>
-            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password"></td>
+            <td><input oninput="func1()" type="password" name="password1" id="password1" size="10" placeholder="Password"></td>
             <td>
                 <div id="pw1_check" class="err"></div>
             </td>
         </tr>
         <tr>
             <td>Repeat password:</td>
-            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password"></td>
+            <td><input oninput="func2()" type="password" name="password2" id="password2" size="10" placeholder="Password"></td>
             <td>
                 <div id="pw2_check" class="err"></div>
             </td>
@@ -38,7 +38,43 @@
     </table>
 
     <input type="submit" value="Submit" id="submitBtn"/>
+    
 </form>
+
+
+<script> 
+
+document.getElementById("submitBtn").style.display = "none"
+
+function func1(){
+ var x= document.getElementById("password1").value.length;
+if (x <6)
+document.getElementById("pw1_check").innerHTML= "Too short"
+else
+document.getElementById("pw1_check").innerHTML= ""
+if (x===0)
+{document.getElementById("pw1_check").innerHTML= ""
+
+document.getElementById("submitBtn").style.display = "none" }
+}
+
+function func2(){
+
+if (document.getElementById("password1").value!==document.getElementById("password2").value)
+    {document.getElementById("pw2_check").innerHTML= " the two passwords don't match";
+    document.getElementById("submitBtn").style.display = "none"
+    }else {
+document.getElementById("pw2_check").innerHTML= ""
+document.getElementById("submitBtn").style.display = "block"}
+if (document.getElementById("password2").value.length===0)
+{document.getElementById("pw2_check").innerHTML= ""
+
+document.getElementById("submitBtn").style.display = "none"}
+}
+
+
+
+</script>
 
 </body>
 </html>
